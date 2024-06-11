@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @blob_stealer %>
+
+
+<br>
+
+<div class="card justify-content-center m-3">
+  With the correct secret, a hacker can generate blob signed_ids and steal protected assets!
+  <br>
+  <p>
+    <strong>code:</strong>
+  ActiveStorage::Blob.signed_id_verifier.generate stolen_id, purpose: stolen_purpose.to_sym
+  </p>
+</div>
+
+
+<div>
+  <%= link_to "Edit this blob stealer", edit_blob_stealer_path(@blob_stealer) %> |
+  <%= link_to "Back to blob stealers", blob_stealers_path %>
+
+  <%= button_to "Destroy this blob stealer", @blob_stealer, method: :delete %>
+</div>

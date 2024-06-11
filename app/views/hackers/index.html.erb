@@ -1,0 +1,30 @@
+
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Hackers" %>
+
+<div class="container">
+  <div class="row flex-row d-flex">
+
+  </div>
+</div>
+<h1>Hackers</h1>
+
+<div id="hackers" class='container-md'>
+  <div class="row d-flex">
+  <% @hackers.each do |hacker| %>
+  <div class="col-4 m-2">
+    <%= render hacker %>
+
+    <p>
+      <%= link_to "Show this hacker", hacker %>
+    </p>
+
+  </div>
+  <% end %>
+
+</div>
+</div>
+
+<%= link_to "New hacker", new_hacker_path %>
+<%= link_to "start posting", posts_path %>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Saved secrets</h1>
+
+<div id="saved_secrets">
+  <% @saved_secrets.each do |saved_secret| %>
+    <%= render saved_secret %>
+    <p>
+      <%= link_to "Show this saved secret", saved_secret %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New saved secret", new_saved_secret_path %>

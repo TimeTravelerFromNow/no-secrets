@@ -1,0 +1,13 @@
+
+<div id="<%= dom_id post %>" class="card" style="width: 18rem;">
+
+    <% if post.header_img.present? %>
+      <%= image_tag post.header_img, class:'card-img-top' %>
+    <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= post.title %></h5>
+    <p class="card-text"><%= post.body %></p>
+
+    <%= link_to 'show', post_path(post), class:"btn btn-primary" %>
+  </div>
+</div>

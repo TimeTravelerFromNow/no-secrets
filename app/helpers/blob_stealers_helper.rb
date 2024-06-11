@@ -1,0 +1,2 @@
+module BlobStealersHelper
+end

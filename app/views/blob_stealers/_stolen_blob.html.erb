@@ -1,0 +1,24 @@
+<div id="<%= dom_id stealer %>">
+
+  <p>
+    <strong>Title:</strong>
+    <%= stealer.title %>
+  </p>
+
+  <p>
+    <strong>Stolen:</strong>
+    <%= stealer.stolen_id %>
+  </p>
+
+
+  <p>
+    <div class="card">
+      <%= image_tag stealer.blob_path << "/aztec-gold-dubloons.png" %>
+    <h5>secret used:</h5>
+      <% if stealer.saved_secret.present? %>
+        <%= render stealer.saved_secret %>
+      <% end %>
+    </div>
+  </p>
+
+</div>

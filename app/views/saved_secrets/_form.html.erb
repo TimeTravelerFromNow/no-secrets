@@ -1,0 +1,27 @@
+<%= form_with(model: saved_secret) do |form| %>
+  <% if saved_secret.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(saved_secret.errors.count, "error") %> prohibited this saved_secret from being saved:</h2>
+
+      <ul>
+        <% saved_secret.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :saved_skb, style: "display: block" %>
+    <%= form.text_field :saved_skb %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

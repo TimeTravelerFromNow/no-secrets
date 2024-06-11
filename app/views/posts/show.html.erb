@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+  <div class="row gx-3">
+
+    <div class="col-4">
+
+      <%= render @post %>
+
+    </div>
+    <div class="col-4">
+      <h4> More Info </h4>
+      <% if @post.hacker.present? %>
+        <strong>thief:</strong> <%= @post.hacker.name %>
+      <% end %>
+      <br>
+      <br>
+      <strong>rails blob:</strong>
+      <%= rails_blob_url(@post.header_img) if @post.header_img.present? %>
+      <br>
+      <strong>find result:</strong>
+      <% if @post.header_img.present? %>
+        <%= ActiveStorage::Blob.find( @post.header_img.blob.id ).inspect %>
+
+      <% end  %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <%= link_to "Edit this post", edit_post_path(@post) %> |
+  <%= link_to "Back to posts", posts_path %>
+
+  <%= button_to "Destroy this post", @post, method: :delete %>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NoSecrets</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">No Secrets!</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <%= link_to 'hackers_path', hackers_path, class:"nav-link active" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to 'posts_path', posts_path, class:"nav-link active" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to 'blob_stealers_path', blob_stealers_path, class:"nav-link active" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to 'saved_secrets_path', saved_secrets_path, class:"nav-link active" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <div class="container-md">
+    <div class="row d-flex">
+      <div class="card">
+        inspect for newline characters (or just be careful)
+        <h4>Credentials</h4>
+        <% Rails.application.credentials.each do |cred| %>
+          <h5 style="background-color: #<%= colorize(cred.second) %>;"><%= cred.first%>:</h5>
+          <h5><%= first_and_last(cred.second) %></h5>
+        <% end %>
+        <hr>
+        <h4>Local Secret</h4>
+            <h5 style="background-color: #<%= colorize(Rails.application.secret_key_base) %>;">Rails.application.secret_key_base:</h5>
+            <h5><%= first_and_last(Rails.application.secret_key_base) %></h5>
+
+      </div>
+    </div>
+  </div>
+    <%= yield %>
+  </body>
+</html>

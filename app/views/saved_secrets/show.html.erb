@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @saved_secret %>
+
+<p style='color: #<%= @saved_secret.color %>'>
+  <strong>Saved skb:</strong>
+  <%= @saved_secret.saved_skb%>
+</p>
+
+<div>
+  <%= link_to "Edit this saved secret", edit_saved_secret_path(@saved_secret) %> |
+  <%= link_to "Back to saved secrets", saved_secrets_path %>
+
+  <%= button_to "Destroy this saved secret", @saved_secret, method: :delete %>
+</div>

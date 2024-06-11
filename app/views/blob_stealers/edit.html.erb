@@ -1,0 +1,12 @@
+<% content_for :title, "Editing blob stealer" %>
+
+<h1>Editing blob stealer</h1>
+
+<%= render "form", blob_stealer: @blob_stealer %>
+
+<br>
+
+<div>
+  <%= link_to "Show this blob stealer", @blob_stealer %> |
+  <%= link_to "Back to blob stealers", blob_stealers_path %>
+</div>

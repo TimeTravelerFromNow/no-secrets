@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  stolen_id: 1
+  stolen_purpose: MyString
+  stolen_signed_id: MyString
+
+two:
+  title: MyString
+  stolen_id: 1
+  stolen_purpose: MyString
+  stolen_signed_id: MyString

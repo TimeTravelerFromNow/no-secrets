@@ -1,0 +1,33 @@
+<%= form_with(model: blob_stealer) do |form| %>
+  <% if blob_stealer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(blob_stealer.errors.count, "error") %> prohibited this blob_stealer from being saved:</h2>
+
+      <ul>
+        <% blob_stealer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <strong>id we want:</strong>
+    <%= form.label :stolen_id, style: "display: block" %>
+    <%= form.number_field :stolen_id %>
+  </div>
+
+  <div>
+    <%= form.label :stolen_purpose, style: "display: block" %>
+    <%= form.text_field :stolen_purpose %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

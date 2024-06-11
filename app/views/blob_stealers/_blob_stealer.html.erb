@@ -1,0 +1,37 @@
+<div id="<%= dom_id blob_stealer %>">
+  <% if blob_stealer.hacker.present? %>
+    <p>
+      <strong>belongs to:</strong>
+      <%= blob_stealer.hacker.name %>
+    </p>
+  <% end %>
+  <p>
+    <strong>Title:</strong>
+    <%= blob_stealer.title %>
+  </p>
+
+  <p>
+    <strong>Stolen:</strong>
+    <%= blob_stealer.stolen_id %>
+  </p>
+
+  <p>
+    <strong>Stolen purpose:</strong>
+    <%= blob_stealer.stolen_purpose %>
+  </p>
+
+  <p>
+    <strong>Stolen signed:</strong>
+    <%= blob_stealer.stolen_signed_id %>
+  </p>
+
+  <p>
+    <div class="card">
+    <h5>secret used:</h5>
+      <% if blob_stealer.saved_secret.present? %>
+        <%= render blob_stealer.saved_secret %>
+      <% end %>
+    </div>
+  </p>
+
+</div>

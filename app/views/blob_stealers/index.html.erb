@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Blob stealers" %>
+
+<h1>Blob stealers</h1>
+
+<div id="blob_stealers">
+  <% @blob_stealers.each do |blob_stealer| %>
+    <%= render blob_stealer %>
+    <p>
+      <%= link_to "Show this blob stealer", blob_stealer %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New blob stealer", new_blob_stealer_path %>

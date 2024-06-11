@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @hacker %>
+
+<div class="container">
+
+  <% BlobStealer.all.each do |stealer| %>
+    <% if @hacker.blob_stealers.includes stealer %>
+      <%= render 'blob_stealers/stolen_blob', stealer: stealer %>
+    <% else %>
+
+      <%= form_with model: [@hacker, stealer] do |form| %>
+        <%= form.hidden_field :blob_stealer_id, value: stealer.id %>
+        <%= form.submit '+ ' << stealer.title %>
+      <% end %>
+
+    <% end %>
+  <% end %>
+</div>
+
+
+<div>
+  <%= link_to "Edit this hacker", edit_hacker_path(@hacker) %> |
+  <%= link_to "Back to hackers", hackers_path %>
+
+  <%= button_to "Destroy this hacker", @hacker, method: :delete %>
+</div>
